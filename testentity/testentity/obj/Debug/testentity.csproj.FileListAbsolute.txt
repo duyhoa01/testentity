@@ -1,0 +1,15 @@
+F:\windowsform\testentity\testentity\bin\Debug\testentity.exe.config
+F:\windowsform\testentity\testentity\bin\Debug\testentity.exe
+F:\windowsform\testentity\testentity\bin\Debug\testentity.pdb
+F:\windowsform\testentity\testentity\bin\Debug\EntityFramework.dll
+F:\windowsform\testentity\testentity\bin\Debug\EntityFramework.SqlServer.dll
+F:\windowsform\testentity\testentity\bin\Debug\EntityFramework.xml
+F:\windowsform\testentity\testentity\bin\Debug\EntityFramework.SqlServer.xml
+F:\windowsform\testentity\testentity\obj\Debug\testentity.csprojAssemblyReference.cache
+F:\windowsform\testentity\testentity\obj\Debug\testentity.Form1.resources
+F:\windowsform\testentity\testentity\obj\Debug\testentity.Properties.Resources.resources
+F:\windowsform\testentity\testentity\obj\Debug\testentity.csproj.GenerateResource.cache
+F:\windowsform\testentity\testentity\obj\Debug\testentity.csproj.CoreCompileInputs.cache
+F:\windowsform\testentity\testentity\obj\Debug\testentity.csproj.CopyComplete
+F:\windowsform\testentity\testentity\obj\Debug\testentity.exe
+F:\windowsform\testentity\testentity\obj\Debug\testentity.pdb

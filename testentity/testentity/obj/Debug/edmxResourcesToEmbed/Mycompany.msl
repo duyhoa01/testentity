@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyCompanyModelStoreContainer" CdmEntityContainer="MyCompanyEntities">
+    <EntitySetMapping Name="per_relationship">
+      <EntityTypeMapping TypeName="MyCompanyModel.per_relationship">
+        <MappingFragment StoreEntitySet="per_relationship">
+          <ScalarProperty Name="id_rel" ColumnName="id_rel" />
+          <ScalarProperty Name="id_user_rel" ColumnName="id_user_rel" />
+          <ScalarProperty Name="id_per_rel" ColumnName="id_per_rel" />
+          <ScalarProperty Name="suspended" ColumnName="suspended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisions">
+      <EntityTypeMapping TypeName="MyCompanyModel.Permision">
+        <MappingFragment StoreEntitySet="Permision">
+          <ScalarProperty Name="id_per" ColumnName="id_per" />
+          <ScalarProperty Name="name_per" ColumnName="name_per" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permision_detail">
+      <EntityTypeMapping TypeName="MyCompanyModel.Permision_detail">
+        <MappingFragment StoreEntitySet="Permision_detail">
+          <ScalarProperty Name="id_pd" ColumnName="id_pd" />
+          <ScalarProperty Name="name_action" ColumnName="name_action" />
+          <ScalarProperty Name="code_action" ColumnName="code_action" />
+          <ScalarProperty Name="id_per" ColumnName="id_per" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MyCompanyModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MyCompanyModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

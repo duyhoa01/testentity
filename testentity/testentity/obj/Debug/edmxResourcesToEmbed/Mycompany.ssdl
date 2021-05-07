@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyCompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="per_relationship">
+    <Key>
+      <PropertyRef Name="id_rel" />
+    </Key>
+    <Property Name="id_rel" Type="int" Nullable="false" />
+    <Property Name="id_user_rel" Type="int" Nullable="false" />
+    <Property Name="id_per_rel" Type="int" Nullable="false" />
+    <Property Name="suspended" Type="bit" />
+  </EntityType>
+  <EntityType Name="Permision">
+    <Key>
+      <PropertyRef Name="id_per" />
+    </Key>
+    <Property Name="id_per" Type="int" Nullable="false" />
+    <Property Name="name_per" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Permision_detail">
+    <Key>
+      <PropertyRef Name="id_pd" />
+    </Key>
+    <Property Name="id_pd" Type="int" Nullable="false" />
+    <Property Name="name_action" Type="nvarchar" MaxLength="50" />
+    <Property Name="code_action" Type="varchar" MaxLength="50" />
+    <Property Name="id_per" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_per_relationship_Permision">
+    <End Role="Permision" Type="Self.Permision" Multiplicity="1" />
+    <End Role="per_relationship" Type="Self.per_relationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permision">
+        <PropertyRef Name="id_per" />
+      </Principal>
+      <Dependent Role="per_relationship">
+        <PropertyRef Name="id_per_rel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_per_relationship_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="per_relationship" Type="Self.per_relationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="per_relationship">
+        <PropertyRef Name="id_user_rel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permision_detail_Permision">
+    <End Role="Permision" Type="Self.Permision" Multiplicity="0..1" />
+    <End Role="Permision_detail" Type="Self.Permision_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permision">
+        <PropertyRef Name="id_per" />
+      </Principal>
+      <Dependent Role="Permision_detail">
+        <PropertyRef Name="id_per" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyCompanyModelStoreContainer">
+    <EntitySet Name="per_relationship" EntityType="Self.per_relationship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permision_detail" EntityType="Self.Permision_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_per_relationship_Permision" Association="Self.FK_per_relationship_Permision">
+      <End Role="Permision" EntitySet="Permision" />
+      <End Role="per_relationship" EntitySet="per_relationship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_per_relationship_Users" Association="Self.FK_per_relationship_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="per_relationship" EntitySet="per_relationship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permision_detail_Permision" Association="Self.FK_Permision_detail_Permision">
+      <End Role="Permision" EntitySet="Permision" />
+      <End Role="Permision_detail" EntitySet="Permision_detail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
